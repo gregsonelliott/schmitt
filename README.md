@@ -122,10 +122,16 @@ placeholders for any that are missing):
 | `images/headshot.jpg` | Steve's headshot (highest-res original available; also used for Facebook share previews) |
 | `images/meet-steve.jpg` | A candid of Steve at the homestead/garden/workshop (portrait orientation); appears beside the Meet Steve bio |
 | `images/banner.jpg` | A wide crowd/community shot with Steve in it; full-width banner between Experience and Priorities. **This band hides itself automatically until the photo exists.** |
-| `images/tree-dedication.jpg` | Memorial tree dedication photo |
+| `images/banner-mobile.jpg` | A tighter crop of the banner scene for phones, so Steve stays in frame |
+| `images/tree-dedication.jpg` | Memorial tree planting for former Mayor Ron Eddy (also the source of the banner crops) |
 | `images/remembrance-day.jpg` | Remembrance Day / Legion photo |
 | `images/quilts-of-valour.jpg` | Quilts of Valour presentation photo |
-| `images/hoodless-plaque.jpg` | Adelaide Hunter Hoodless plaque event photo |
+| `images/hoodless-plaque.jpg` | Adelaide Hunter Hoodless High Tea photo |
+| `images/with-will-bouma-mpp-SDHS-levy.jpg` | With MPP Will Bouma at the SDHS levee |
+
+Gallery photos open in a lightbox on click. To add one, drop the file in
+`images/`, then copy a `<figure>` block inside the `<div class="gallery">` in
+`index.html` and point it at the new file; it joins the lightbox automatically.
 
 Before committing, resize to ~1600px on the long edge and save as JPEG
 quality ~80 so the site stays fast (any photo tool or
@@ -144,7 +150,8 @@ quality ~80 so the site stays fast (any photo tool or
       *search* for "Steve Schmitt Ward 1". Swap all occurrences in
       `index.html` with the page's real URL (open the page on Facebook and
       copy the address).
-- [ ] Set up Formspree and replace `YOUR_FORM_ID` in `index.html`.
+- [ ] Create the Google Form and replace the form/entry ids in
+      `index.html` (see "Contact form" above).
 - [ ] Set up email forwarding for steve@steveschmitt.ca and send a test.
 - [ ] Add endorsement quotes when collected (see above).
 - [ ] Closer to the election: confirm advance-voting dates on
