@@ -789,6 +789,10 @@ section[id] { scroll-margin-top: 4.5rem; }
   color: var(--navy);
   margin-bottom: 0.3rem;
 }
+.form-row .optional {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
 .form-row input,
 .form-row select,
 .form-row textarea {

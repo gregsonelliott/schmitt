@@ -59,9 +59,10 @@ monthly cost, no account to maintain beyond Google, and nothing extra hosted.
 **One-time setup:**
 
 1. At [forms.google.com](https://forms.google.com), signed in as the campaign
-   Google account, create a form with exactly four questions, in this order:
+   Google account, create a form with exactly five questions, in this order:
    - `Name` (short answer)
    - `Email` (short answer)
+   - `Phone` (short answer, not required)
    - `How can we help?` (multiple choice) with these three options typed
      **exactly** as they appear on the site:
      `I have a question`, `Request a lawn sign`, `I want to volunteer`
@@ -72,11 +73,11 @@ monthly cost, no account to maintain beyond Google, and nothing extra hosted.
 4. Open that public URL, right-click the page, choose **View page source**, and
    search for `entry.` You will find a numeric id beside each question, e.g.
    `entry.1234567890`. Note which id belongs to which question.
-5. In `index.html`, replace the five placeholders in the Get Involved form:
+5. In `index.html`, replace the six placeholders in the Get Involved form:
    - `GOOGLE_FORM_ID` in the form's `action` (the long id from the public URL,
      the part between `/d/e/` and `/viewform`)
-   - `entry.NAME_ID`, `entry.EMAIL_ID`, `entry.TOPIC_ID`, `entry.MESSAGE_ID`
-     with the four real entry ids
+   - `entry.NAME_ID`, `entry.EMAIL_ID`, `entry.PHONE_ID`, `entry.TOPIC_ID`,
+     `entry.MESSAGE_ID` with the five real entry ids
 6. Commit and push, then send a test submission and confirm it lands in the
    spreadsheet.
 

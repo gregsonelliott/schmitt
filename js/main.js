@@ -36,13 +36,13 @@ if (form) {
 
     if (!configured) {
       const to = form.dataset.fallbackEmail;
-      const entries = [...data.entries()];
-      const val = (frag) => (entries.find(([k]) => k.includes(frag)) || [])[1] || '';
-      const subject = encodeURIComponent('[steveschmitt.ca] ' + (val('TOPIC') || 'Message'));
+      const val = (id) => (document.getElementById(id) || {}).value || '';
+      const subject = encodeURIComponent('[steveschmitt.ca] ' + (val('cf-topic') || 'Message'));
       const body = encodeURIComponent(
-        'Name: ' + val('NAME') + '\n' +
-        'Email: ' + val('EMAIL') + '\n\n' +
-        val('MESSAGE')
+        'Name: ' + val('cf-name') + '\n' +
+        'Email: ' + val('cf-email') + '\n' +
+        'Phone: ' + (val('cf-phone') || 'not given') + '\n\n' +
+        val('cf-message')
       );
       window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
       status.textContent = 'Opening your email app. If nothing happens, please email ' + to + ' directly.';
