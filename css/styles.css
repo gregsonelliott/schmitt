@@ -85,10 +85,11 @@ section[id] { scroll-margin-top: 4.5rem; }
 }
 .brand-last { color: var(--blue-bright); }
 .brand-sub {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.19em;
+  letter-spacing: 0.13em;
+  white-space: nowrap;
   line-height: 1;
   color: var(--sky);
 }
