@@ -24,7 +24,11 @@ if (toggle && nav) {
 const form = document.querySelector('.contact-form');
 if (form) {
   const status = form.querySelector('.form-status');
-  const configured = !form.action.includes('GOOGLE_FORM_ID');
+  // Only post to Google once BOTH the form id and every field id are real.
+  // Placeholder field names look like entry.NAME_ID (uppercase); real ones are
+  // numeric. Posting with placeholders would silently drop submissions.
+  const hasPlaceholderFields = [...form.elements].some((el) => /entry\.[A-Z]/.test(el.name || ''));
+  const configured = !form.action.includes('GOOGLE_FORM_ID') && !hasPlaceholderFields;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
