@@ -1,9 +1,9 @@
-# steveschmitt.ca — Steve Schmitt for Ward 1
+# steveschmitt.ca / Steve Schmitt for Ward 1
 
 Campaign website for Steve Schmitt, candidate for County of Brant Ward 1
 Councillor (Ontario municipal election, Monday, October 26, 2026).
 
-Plain static HTML/CSS/JS — no build step, no dependencies. Everything lives in:
+Plain static HTML/CSS/JS with no build step and no dependencies. Everything lives in:
 
 ```
 index.html      the entire one-page site (all copy lives here)
@@ -25,13 +25,13 @@ http://localhost:8000.
 1. In the DigitalOcean dashboard: **Create → App** → connect GitHub → select
    `gregsonelliott/schmitt`, branch `main`, leave **Autodeploy** on.
 2. DO detects a **static site**. No build command needed; output directory is
-   the repo root (`/`). Choose the **Starter (free)** static-site tier — it
+   the repo root (`/`). Choose the **Starter (free)** static-site tier. It
    covers a campaign site's traffic; upgrade only if DO reports bandwidth
    overages.
 3. After the first deploy, open the app's **Settings → Domains** and add
    `steveschmitt.ca` and `www.steveschmitt.ca`. DO shows you the DNS records
    to create. At the domain registrar, either:
-   - add the **CNAME/A records** DO displays (simplest — keeps DNS at the
+   - add the **CNAME/A records** DO displays (simplest, keeps DNS at the
      registrar), or
    - switch the domain's **nameservers** to DigitalOcean and manage DNS in DO.
 4. SSL (https) is issued automatically via Let's Encrypt once DNS resolves.
@@ -43,9 +43,9 @@ http://localhost:8000.
 App Platform doesn't handle email. Set up **forwarding** so mail to
 `steve@steveschmitt.ca` lands in the campaign's existing inbox:
 
-- **Option A (easiest):** most .ca registrars include free email forwarding —
-  enable it in the registrar panel and forward `steve@` to the campaign Gmail.
-- **Option B:** [ImprovMX](https://improvmx.com) free tier — add their two MX
+- **Option A (easiest):** most .ca registrars include free email forwarding.
+  Enable it in the registrar panel and forward `steve@` to the campaign Gmail.
+- **Option B:** [ImprovMX](https://improvmx.com) free tier. Add their two MX
   records and one TXT record at your DNS host, then create the alias.
 
 Send a test email before printing the address anywhere else.
@@ -71,12 +71,12 @@ with the message pre-filled, addressed to steve@steveschmitt.ca.
 In `index.html`, find the `<section ... id="news">` block. Copy an existing
 `<article class="news-item">...</article>`, update the `datetime`, visible
 date, heading, and text, and place it **above** the older posts (newest
-first). Commit and push — the site redeploys automatically.
+first). Commit and push, and the site redeploys automatically.
 
 ### Activating the endorsements section
 
 The "What Neighbours Are Saying" section ships **commented out**. When you
-have 2–3 real quotes:
+have two or three real quotes:
 
 1. In `index.html`, find the HTML comment beginning
    `============ ENDORSEMENTS`.
@@ -92,9 +92,9 @@ placeholders for any that are missing):
 
 | File | What it should be |
 |---|---|
-| `images/headshot.jpg` | Steve's headshot (highest-res original available — also used for Facebook share previews) |
-| `images/meet-steve.jpg` | A candid of Steve at the homestead/garden/workshop (portrait orientation) — appears beside the Meet Steve bio |
-| `images/banner.jpg` | A wide crowd/community shot with Steve in it — full-width banner between Experience and Priorities. **This band hides itself automatically until the photo exists.** |
+| `images/headshot.jpg` | Steve's headshot (highest-res original available; also used for Facebook share previews) |
+| `images/meet-steve.jpg` | A candid of Steve at the homestead/garden/workshop (portrait orientation); appears beside the Meet Steve bio |
+| `images/banner.jpg` | A wide crowd/community shot with Steve in it; full-width banner between Experience and Priorities. **This band hides itself automatically until the photo exists.** |
 | `images/tree-dedication.jpg` | Memorial tree dedication photo |
 | `images/remembrance-day.jpg` | Remembrance Day / Legion photo |
 | `images/quilts-of-valour.jpg` | Quilts of Valour presentation photo |
