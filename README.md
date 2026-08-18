@@ -155,12 +155,11 @@ quality ~80 so the site stays fast (any photo tool or
       Gardens", and the proper name of the Tim Hortons camps role (likely Tim
       Horton Children's Foundation / Onondaga Farms).
 - [ ] Add real photos to `images/` (see table above).
-- [ ] Replace the Facebook links: the site currently links to a Facebook
-      *search* for "Steve Schmitt Ward 1". Swap all occurrences in
-      `index.html` with the page's real URL (open the page on Facebook and
-      copy the address).
-- [ ] Create the Google Form and replace the form/entry ids in
-      `index.html` (see "Contact form" above).
+- [x] Facebook links point at the real Page,
+      https://www.facebook.com/SteveSchmittWard1/
+- [x] Google Form connected and the entry ids wired in (see "Contact form"
+      above). Still to do there: delete the test rows, title the Message
+      question, untick Required on Phone.
 - [ ] Set up email forwarding for steve@steveschmitt.ca and send a test.
 - [ ] Add endorsement quotes when collected (see above).
 - [ ] Closer to the election: confirm advance-voting dates on
