@@ -432,22 +432,26 @@
       <h2>Get Involved</h2>
       <p>Have a question for Steve? Want a lawn sign on your property, or a few hours to give to the campaign? Send a note. Every message gets read.</p>
 
-      <!-- FORM BACKEND: create a free form at https://formspree.io pointing at
-           steve@steveschmitt.ca, then replace YOUR_FORM_ID below with the real ID
-           (action="https://formspree.io/f/YOUR_FORM_ID"). Until then, the form
-           falls back to opening the visitor's email app. See README.md. -->
-      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-fallback-email="steve@steveschmitt.ca">
+      <!-- FORM BACKEND: this posts to a Google Form, so responses collect in a
+           Google Sheet and email the campaign. Nothing to pay for, nothing to
+           host. To connect it, replace the four placeholders below with the real
+           IDs from the Google Form (see README.md, "Contact form"):
+             GOOGLE_FORM_ID  in the action URL
+             entry.NAME_ID / entry.EMAIL_ID / entry.TOPIC_ID / entry.MESSAGE_ID
+           Until those are filled in, the form falls back to opening the
+           visitor's email app, so it always works. -->
+      <form class="contact-form" action="https://docs.google.com/forms/d/e/GOOGLE_FORM_ID/formResponse" method="POST" data-fallback-email="steve@steveschmitt.ca">
         <div class="form-row">
           <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" required autocomplete="name">
+          <input type="text" id="cf-name" name="entry.NAME_ID" required autocomplete="name">
         </div>
         <div class="form-row">
           <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" required autocomplete="email">
+          <input type="email" id="cf-email" name="entry.EMAIL_ID" required autocomplete="email">
         </div>
         <div class="form-row">
           <label for="cf-topic">How can we help?</label>
-          <select id="cf-topic" name="topic" required>
+          <select id="cf-topic" name="entry.TOPIC_ID" required>
             <option value="">Choose one&hellip;</option>
             <option>I have a question</option>
             <option>Request a lawn sign</option>
@@ -456,7 +460,13 @@
         </div>
         <div class="form-row">
           <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required></textarea>
+          <textarea id="cf-message" name="entry.MESSAGE_ID" rows="5" required></textarea>
+        </div>
+        <!-- Spam trap: hidden from people, tempting to bots. Submissions that
+             fill it in are discarded. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="cf-website">Leave this field empty</label>
+          <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
         <p class="form-status" role="status" aria-live="polite"></p>

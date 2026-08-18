@@ -808,6 +808,15 @@ section[id] { scroll-margin-top: 4.5rem; }
   outline-offset: 1px;
   border-color: var(--blue);
 }
+/* spam trap: off-screen for people, still submitted by bots */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-status { font-weight: 600; margin-top: 0.8rem; min-height: 1.2em; }
 .form-status.ok { color: #15803d; }
 .form-status.err { color: #b91c1c; }

@@ -16,50 +16,54 @@ if (toggle && nav) {
   });
 }
 
-// Contact form: submit to Formspree via fetch. If the form ID hasn't been
-// configured yet (action still contains YOUR_FORM_ID), fall back to opening
-// the visitor's email app with the message pre-filled.
+// Contact form: posts to a Google Form (responses land in a Google Sheet).
+// Google's endpoint does not allow reading the response cross-origin, so the
+// request is sent no-cors and success is reported optimistically. If the form
+// IDs have not been filled in yet, fall back to opening the visitor's email app
+// so the form is never a dead end.
 const form = document.querySelector('.contact-form');
 if (form) {
   const status = form.querySelector('.form-status');
-  const configured = !form.action.includes('YOUR_FORM_ID');
+  const configured = !form.action.includes('GOOGLE_FORM_ID');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
 
+    // Spam trap: bots fill hidden fields, people do not.
+    if (data.get('website')) { form.reset(); return; }
+    data.delete('website');
+
     if (!configured) {
       const to = form.dataset.fallbackEmail;
-      const subject = encodeURIComponent('[steveschmitt.ca] ' + (data.get('topic') || 'Message'));
+      const entries = [...data.entries()];
+      const val = (frag) => (entries.find(([k]) => k.includes(frag)) || [])[1] || '';
+      const subject = encodeURIComponent('[steveschmitt.ca] ' + (val('TOPIC') || 'Message'));
       const body = encodeURIComponent(
-        'Name: ' + data.get('name') + '\n' +
-        'Email: ' + data.get('email') + '\n\n' +
-        data.get('message')
+        'Name: ' + val('NAME') + '\n' +
+        'Email: ' + val('EMAIL') + '\n\n' +
+        val('MESSAGE')
       );
       window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-      status.textContent = 'Opening your email app… If nothing happens, please email ' + to + ' directly.';
+      status.textContent = 'Opening your email app. If nothing happens, please email ' + to + ' directly.';
       status.className = 'form-status ok';
       return;
     }
 
-    status.textContent = 'Sending…';
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    status.textContent = 'Sending...';
     status.className = 'form-status';
     try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' }
-      });
-      if (res.ok) {
-        form.reset();
-        status.textContent = 'Thanks! Your message is on its way to Steve.';
-        status.className = 'form-status ok';
-      } else {
-        throw new Error('Bad response');
-      }
+      await fetch(form.action, { method: 'POST', mode: 'no-cors', body: data });
+      form.reset();
+      status.textContent = 'Thanks! Your message is on its way to Steve.';
+      status.className = 'form-status ok';
     } catch (err) {
       status.textContent = 'Something went wrong. Please email ' + form.dataset.fallbackEmail + ' directly.';
       status.className = 'form-status err';
+    } finally {
+      button.disabled = false;
     }
   });
 }

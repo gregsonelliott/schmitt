@@ -50,17 +50,44 @@ App Platform doesn't handle email. Set up **forwarding** so mail to
 
 Send a test email before printing the address anywhere else.
 
-## Contact form (Formspree)
+## Contact form (Google Form backend)
 
-The Get Involved form posts to Formspree (free tier: 50 submissions/month).
+The Get Involved form is the site's own styled form, but it posts to a **Google
+Form**, so responses collect in a Google Sheet and email the campaign. No
+monthly cost, no account to maintain beyond Google, and nothing extra hosted.
 
-1. Create a free account at https://formspree.io using the campaign email.
-2. Create a new form; set the notification email to `steve@steveschmitt.ca`.
-3. Copy the form ID and replace `YOUR_FORM_ID` in `index.html`
-   (search for `formspree.io/f/YOUR_FORM_ID`).
+**One-time setup:**
 
-**Until that's done the form still works**: it opens the visitor's email app
+1. At [forms.google.com](https://forms.google.com), signed in as the campaign
+   Google account, create a form with exactly four questions, in this order:
+   - `Name` (short answer)
+   - `Email` (short answer)
+   - `How can we help?` (multiple choice) with these three options typed
+     **exactly** as they appear on the site:
+     `I have a question`, `Request a lawn sign`, `I want to volunteer`
+   - `Message` (paragraph)
+2. In the form's **Responses** tab, click the Sheets icon to create the
+   spreadsheet, and turn on **Get email notifications for new responses**.
+3. Click **Send**, choose the link icon, and copy the form's public URL.
+4. Open that public URL, right-click the page, choose **View page source**, and
+   search for `entry.` You will find a numeric id beside each question, e.g.
+   `entry.1234567890`. Note which id belongs to which question.
+5. In `index.html`, replace the five placeholders in the Get Involved form:
+   - `GOOGLE_FORM_ID` in the form's `action` (the long id from the public URL,
+     the part between `/d/e/` and `/viewform`)
+   - `entry.NAME_ID`, `entry.EMAIL_ID`, `entry.TOPIC_ID`, `entry.MESSAGE_ID`
+     with the four real entry ids
+6. Commit and push, then send a test submission and confirm it lands in the
+   spreadsheet.
+
+**Until step 5 is done the form still works**: it opens the visitor's email app
 with the message pre-filled, addressed to steve@steveschmitt.ca.
+
+**Notes:** the dropdown options on the site must keep matching the Google Form's
+choices exactly, or those responses will be rejected. The form includes a hidden
+spam-trap field that bots fill and people never see; those submissions are
+discarded. If questions are ever added or reordered in the Google Form, re-check
+the entry ids.
 
 ---
 
