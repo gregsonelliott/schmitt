@@ -593,6 +593,7 @@ section[id] { scroll-margin-top: 4.5rem; }
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
+  object-position: center 28%; /* favour faces when cropping tall photos */
 }
 .gallery figure.img-missing img { display: none; }
 .gallery figure.img-missing::before {
