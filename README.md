@@ -152,8 +152,9 @@ quality ~80 so the site stays fast (any photo tool or
 
 - [ ] **Verify with Steve** the exact business names in the Meet Steve
       section and `llms.txt`: "Electra Modern Controls", "Nature's Way
-      Gardens", and the proper name of the Tim Hortons camps role (likely Tim
-      Horton Children's Foundation / Onondaga Farms).
+      Gardens", "Walter's Greenhouses and Garden Centre", and the proper name of
+      the Tim Hortons camps role (likely Tim Horton Children's Foundation /
+      Onondaga Farms).
 - [ ] Add real photos to `images/` (see table above).
 - [x] Facebook links point at the real Page,
       https://www.facebook.com/SteveSchmittWard1/
