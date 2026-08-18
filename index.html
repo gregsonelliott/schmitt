@@ -199,7 +199,11 @@
   <section class="photo-band" aria-label="Steve in the community">
     <figure>
       <div class="photo-band-media">
-        <img src="images/banner.jpg" alt="Steve Schmitt with neighbours at the memorial tree planting for former Mayor Ron Eddy" onerror="this.closest('.photo-band').style.display='none'">
+        <picture>
+          <!-- narrow screens get a tighter crop so Steve stays in frame -->
+          <source media="(max-width: 700px)" srcset="images/banner-mobile.jpg">
+          <img src="images/banner.jpg" alt="Steve Schmitt with neighbours at the memorial tree planting for former Mayor Ron Eddy" onerror="this.closest('.photo-band').style.display='none'">
+        </picture>
         <div class="photo-band-overlay">
           <p>Experienced. Engaged.<br>Committed to Ward&nbsp;1.</p>
         </div>

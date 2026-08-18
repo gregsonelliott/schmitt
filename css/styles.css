@@ -414,12 +414,16 @@ section[id] { scroll-margin-top: 4.5rem; }
   line-height: 1.5;
   color: #91a6dd;
 }
+.photo-band picture { display: block; }
 .photo-band img {
   width: 100%;
   height: clamp(300px, 44vw, 460px);
   object-fit: cover;
   object-position: center 30%;
   display: block;
+}
+@media (max-width: 700px) {
+  .photo-band img { height: clamp(320px, 78vw, 420px); object-position: center 35%; }
 }
 .photo-band-overlay {
   position: absolute;
