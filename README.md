@@ -93,6 +93,8 @@ placeholders for any that are missing):
 | File | What it should be |
 |---|---|
 | `images/headshot.jpg` | Steve's headshot (highest-res original available — also used for Facebook share previews) |
+| `images/meet-steve.jpg` | A candid of Steve at the homestead/garden/workshop (portrait orientation) — appears beside the Meet Steve bio |
+| `images/banner.jpg` | A wide crowd/community shot with Steve in it — full-width banner between Experience and Priorities. **This band hides itself automatically until the photo exists.** |
 | `images/tree-dedication.jpg` | Memorial tree dedication photo |
 | `images/remembrance-day.jpg` | Remembrance Day / Legion photo |
 | `images/quilts-of-valour.jpg` | Quilts of Valour presentation photo |
