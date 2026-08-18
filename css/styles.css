@@ -328,14 +328,14 @@ section[id] { scroll-margin-top: 4.5rem; }
   letter-spacing: 0.01em;
   margin: 0 0 1.25rem;
 }
+/* flowing "Grand River" underline, after the County of Brant swoosh */
 .section h2::after {
   content: "";
   display: block;
-  width: 4.5rem;
-  height: 5px;
-  margin-top: 0.6rem;
-  border-radius: 3px;
-  background: var(--blue);
+  width: 6rem;
+  height: 0.8rem;
+  margin-top: 0.55rem;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 14"><path d="M2 9C20 2 38 12 58 7 78 2 96 12 118 6" fill="none" stroke="%232563eb" stroke-width="3" stroke-linecap="round"/><path d="M6 12.5C24 6 42 15 62 10 82 5 100 13.5 118 9.5" fill="none" stroke="%2393c5fd" stroke-width="2.5" stroke-linecap="round"/></svg>') no-repeat left center / contain;
 }
 
 .accent-line {
@@ -563,6 +563,15 @@ section[id] { scroll-margin-top: 4.5rem; }
   gap: 1.6rem;
   margin-top: 2rem;
 }
+.community-intro { max-width: 46rem; color: var(--ink-soft); }
+
+.street-art {
+  color: #a9c7ee;
+  max-width: 920px;
+  margin: 3.25rem auto 0;
+}
+.street-art svg { width: 100%; height: auto; display: block; }
+
 .gallery figure { margin: 0; }
 .gallery img {
   width: 100%;
@@ -601,7 +610,9 @@ section[id] { scroll-margin-top: 4.5rem; }
   padding-bottom: 4.5rem;
 }
 .section-navy h2 { color: #fff; }
-.section-navy h2::after { background: var(--blue-bright); }
+.section-navy h2::after {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 14"><path d="M2 9C20 2 38 12 58 7 78 2 96 12 118 6" fill="none" stroke="%23ffffff" stroke-width="3" stroke-linecap="round"/><path d="M6 12.5C24 6 42 15 62 10 82 5 100 13.5 118 9.5" fill="none" stroke="%2393c5fd" stroke-width="2.5" stroke-linecap="round"/></svg>');
+}
 .section-navy a { color: var(--sky); }
 .section-navy a:hover { color: #fff; }
 
@@ -712,6 +723,14 @@ section[id] { scroll-margin-top: 4.5rem; }
   font-weight: 800;
   font-size: 1.25rem;
   margin: 0 0 1.1rem;
+}
+.footer-places {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--sky);
+  margin: -0.5rem 0 1.1rem;
 }
 .footer-contact { margin: 0 0 1.4rem; }
 .footer-legal {
