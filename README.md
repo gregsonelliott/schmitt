@@ -29,26 +29,37 @@ http://localhost:8000.
    covers a campaign site's traffic; upgrade only if DO reports bandwidth
    overages.
 3. After the first deploy, open the app's **Settings → Domains** and add
-   `steveschmitt.ca` and `www.steveschmitt.ca`. DO shows you the DNS records
-   to create. At the domain registrar, either:
-   - add the **CNAME/A records** DO displays (simplest, keeps DNS at the
-     registrar), or
-   - switch the domain's **nameservers** to DigitalOcean and manage DNS in DO.
+   `steveschmitt.ca` and `www.steveschmitt.ca`.
+
+   > ### Read this before touching DNS
+   >
+   > **steve@steveschmitt.ca is live on Google Workspace**, and its MX records
+   > live wherever the domain's DNS is hosted today. Point the nameservers at
+   > DigitalOcean without recreating those records first and **the campaign's
+   > email stops arriving**, silently, until they are restored.
+   >
+   > **Safest path: leave the nameservers alone.** Keep DNS where it is, and at
+   > the registrar just add the records DO displays for the app. Mail is never
+   > touched. This works as long as the DNS host supports `ALIAS`/`ANAME` (some
+   > call it CNAME flattening) for the bare domain, which is needed because a
+   > bare domain cannot use a plain CNAME.
+   >
+   > **If the host cannot do that**, then move nameservers to DigitalOcean, but
+   > first screenshot or export every existing record, and recreate them in DO
+   > **before** the switch: the Google MX records, plus the SPF, DKIM and any
+   > DMARC TXT records. Send a test email to steve@ afterwards and confirm it
+   > arrives.
 4. SSL (https) is issued automatically via Let's Encrypt once DNS resolves.
 5. From then on: **every push to `main` deploys automatically** within a
    minute or two.
 
 ## Email for steve@steveschmitt.ca
 
-App Platform doesn't handle email. Set up **forwarding** so mail to
-`steve@steveschmitt.ca` lands in the campaign's existing inbox:
+Already working: the address is hosted on **Google Workspace**. App Platform is
+not involved in mail at all.
 
-- **Option A (easiest):** most .ca registrars include free email forwarding.
-  Enable it in the registrar panel and forward `steve@` to the campaign Gmail.
-- **Option B:** [ImprovMX](https://improvmx.com) free tier. Add their two MX
-  records and one TXT record at your DNS host, then create the alias.
-
-Send a test email before printing the address anywhere else.
+The only way to break it is a DNS change that drops the Google MX records. See
+the warning in the deployment steps above before altering nameservers.
 
 ## Contact form (Google Form backend)
 
@@ -152,16 +163,17 @@ quality ~80 so the site stays fast (any photo tool or
 
 - [ ] **Verify with Steve** the exact business names in the Meet Steve
       section and `llms.txt`: "Electra Modern Controls", "Nature's Way
-      Gardens", "Walter's Greenhouses and Garden Centre", and the proper name of
-      the Tim Hortons camps role (likely Tim Horton Children's Foundation /
-      Onondaga Farms).
+      Gardens", and the proper name of the Tim Hortons camps role (likely Tim
+      Horton Children's Foundation / Onondaga Farms). Walter's Greenhouses &
+      Garden Centre is confirmed against their logo.
 - [ ] Add real photos to `images/` (see table above).
 - [x] Facebook links point at the real Page,
       https://www.facebook.com/SteveSchmittWard1/
 - [x] Google Form connected and the entry ids wired in (see "Contact form"
       above). Still to do there: delete the test rows, title the Message
       question, untick Required on Phone.
-- [ ] Set up email forwarding for steve@steveschmitt.ca and send a test.
+- [x] steve@steveschmitt.ca works (hosted on Google Workspace). **Its MX and
+      TXT records must survive any DNS change: see the domain warning below.**
 - [ ] Add endorsement quotes when collected (see above).
 - [ ] Closer to the election: confirm advance-voting dates on
       [brant.ca](https://www.brant.ca/council-and-county-administration/elections/)
