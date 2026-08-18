@@ -52,43 +52,51 @@ Send a test email before printing the address anywhere else.
 
 ## Contact form (Google Form backend)
 
-The Get Involved form is the site's own styled form, but it posts to a **Google
-Form**, so responses collect in a Google Sheet and email the campaign. No
-monthly cost, no account to maintain beyond Google, and nothing extra hosted.
+The Get Involved form is the site's own styled form, but it posts to the
+campaign's **Google Form**, so responses collect in a Google Sheet and notify by
+email. Nothing to pay for, nothing extra hosted, and the site stays fully static.
 
-**One-time setup:**
+**It is already connected.** Form:
+`1FAIpQLSc-c4d5jOELzXwNmR_Zk9omh-rYjqgqms404AJTXMs9jvDqPA`
 
-1. At [forms.google.com](https://forms.google.com), signed in as the campaign
-   Google account, create a form with exactly five questions, in this order:
-   - `Name` (short answer)
-   - `Email` (short answer)
-   - `Phone` (short answer, not required)
-   - `How can we help?` (multiple choice) with these three options typed
-     **exactly** as they appear on the site:
-     `I have a question`, `Request a lawn sign`, `I want to volunteer`
-   - `Message` (paragraph)
-2. In the form's **Responses** tab, click the Sheets icon to create the
-   spreadsheet, and turn on **Get email notifications for new responses**.
-3. Click **Send**, choose the link icon, and copy the form's public URL.
-4. Open that public URL, right-click the page, choose **View page source**, and
-   search for `entry.` You will find a numeric id beside each question, e.g.
-   `entry.1234567890`. Note which id belongs to which question.
-5. In `index.html`, replace the six placeholders in the Get Involved form:
-   - `GOOGLE_FORM_ID` in the form's `action` (the long id from the public URL,
-     the part between `/d/e/` and `/viewform`)
-   - `entry.NAME_ID`, `entry.EMAIL_ID`, `entry.PHONE_ID`, `entry.TOPIC_ID`,
-     `entry.MESSAGE_ID` with the five real entry ids
-6. Commit and push, then send a test submission and confirm it lands in the
-   spreadsheet.
+| Site field | Google entry id |
+|---|---|
+| Name | `entry.1507147912` |
+| Email | `entry.2126689742` |
+| Phone | `entry.919759348` |
+| How can we help? | `entry.1832474592` |
+| Message | `entry.1556363333` |
 
-**Until step 5 is done the form still works**: it opens the visitor's email app
-with the message pre-filled, addressed to steve@steveschmitt.ca.
+**Three things keep it working. Do not break them:**
 
-**Notes:** the dropdown options on the site must keep matching the Google Form's
-choices exactly, or those responses will be rejected. The form includes a hidden
-spam-trap field that bots fill and people never see; those submissions are
-discarded. If questions are ever added or reordered in the Google Form, re-check
-the entry ids.
+1. **The dropdown values must match the Google Form exactly**, including
+   capitalisation: `I Have a question`, `Request a Lawn Sign`,
+   `I want to volunteer`. The site shows sentence case to visitors but submits
+   the exact strings via each option's `value` attribute. Change the wording in
+   Google Forms and you must change these too, or those responses are rejected.
+2. **"Collect email addresses" is switched on** in the form settings, so every
+   submission must also include a built-in `emailAddress` field. `js/main.js`
+   adds it automatically from the Email box. If that setting is ever turned off,
+   the Sheet loses its duplicate email column and this line can go.
+3. **Phone is marked required in the Google Form** but optional on the site, so
+   `js/main.js` submits `Not provided` when it is left blank. Better: open the
+   Google Form and untick Required on the Phone question, which makes the Sheet
+   read more honestly.
+
+**Two tidy-ups worth doing in Google Forms:**
+
+- The Message question has **no title**, so its Sheet column header is blank.
+  Give it the title `Message`.
+- Delete the rows named `TEST SUBMISSION - please delete` / `TEST 2`.
+
+**If a question is ever added, renamed, or reordered**, re-check the entry ids:
+open the form's public URL, then View Page Source and search for `entry.`.
+Easier still, use the form editor's **⋮ → Get pre-filled link**, fill dummy
+values, and read the ids out of the resulting URL.
+
+Submissions are sent with `mode: 'no-cors'`, so the browser cannot read Google's
+reply; the success message is optimistic. A hidden spam-trap field catches bots,
+and their submissions are discarded.
 
 ---
 

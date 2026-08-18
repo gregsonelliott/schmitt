@@ -54,6 +54,17 @@ if (form) {
       return;
     }
 
+    // The Google Form has "Collect email addresses" switched on, which requires a
+    // separate built-in emailAddress field on top of the Email question. Without
+    // it Google rejects the whole submission.
+    const email = document.getElementById('cf-email');
+    if (email) data.set('emailAddress', email.value.trim());
+
+    // The Google Form marks Phone required while the site offers it as optional,
+    // so send a placeholder rather than let a blank phone reject the submission.
+    const phone = document.getElementById('cf-phone');
+    if (phone && !phone.value.trim()) data.set(phone.name, 'Not provided');
+
     const button = form.querySelector('button[type="submit"]');
     button.disabled = true;
     status.textContent = 'Sending...';

@@ -432,39 +432,36 @@
       <h2>Get Involved</h2>
       <p>Have a question for Steve? Want a lawn sign on your property, or a few hours to give to the campaign? Send a note. Every message gets read.</p>
 
-      <!-- FORM BACKEND: this posts to a Google Form, so responses collect in a
-           Google Sheet and email the campaign. Nothing to pay for, nothing to
-           host. To connect it, replace the four placeholders below with the real
-           IDs from the Google Form (see README.md, "Contact form"):
-             GOOGLE_FORM_ID  in the action URL
-             entry.NAME_ID / entry.EMAIL_ID / entry.TOPIC_ID / entry.MESSAGE_ID
-           Until those are filled in, the form falls back to opening the
-           visitor's email app, so it always works. -->
+      <!-- FORM BACKEND: posts to the campaign's Google Form, so responses collect
+           in a Google Sheet and notify by email. The entry.NNN names and the
+           option VALUES below must match that form exactly; if a question is
+           edited, renamed, or reordered in Google Forms, re-check them against
+           README.md, "Contact form". -->
       <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSc-c4d5jOELzXwNmR_Zk9omh-rYjqgqms404AJTXMs9jvDqPA/formResponse" method="POST" data-fallback-email="steve@steveschmitt.ca">
         <div class="form-row">
           <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="entry.NAME_ID" required autocomplete="name">
+          <input type="text" id="cf-name" name="entry.1507147912" required autocomplete="name">
         </div>
         <div class="form-row">
           <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="entry.EMAIL_ID" required autocomplete="email">
+          <input type="email" id="cf-email" name="entry.2126689742" required autocomplete="email">
         </div>
         <div class="form-row">
           <label for="cf-phone">Phone <span class="optional">(optional)</span></label>
-          <input type="tel" id="cf-phone" name="entry.PHONE_ID" autocomplete="tel">
+          <input type="tel" id="cf-phone" name="entry.919759348" autocomplete="tel">
         </div>
         <div class="form-row">
           <label for="cf-topic">How can we help?</label>
-          <select id="cf-topic" name="entry.TOPIC_ID" required>
+          <select id="cf-topic" name="entry.1832474592" required>
             <option value="">Choose one&hellip;</option>
-            <option>I have a question</option>
-            <option>Request a lawn sign</option>
-            <option>I want to volunteer</option>
+            <option value="I Have a question">I have a question</option>
+            <option value="Request a Lawn Sign">Request a lawn sign</option>
+            <option value="I want to volunteer">I want to volunteer</option>
           </select>
         </div>
         <div class="form-row">
           <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="entry.MESSAGE_ID" rows="5" required></textarea>
+          <textarea id="cf-message" name="entry.1556363333" rows="5" required></textarea>
         </div>
         <!-- Spam trap: hidden from people, tempting to bots. Submissions that
              fill it in are discarded. -->
