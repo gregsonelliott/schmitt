@@ -7,6 +7,9 @@
   <meta name="description" content="Steve Schmitt is a candidate for Ward 1 Councillor in the County of Brant, Ontario, in the October 26, 2026 municipal election. Local roots. Decades of community service. A clear voice for Ward 1's future.">
   <link rel="canonical" href="https://steveschmitt.ca/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- Open Graph (Facebook shares) -->
@@ -125,16 +128,43 @@
     <div class="container hero-inner">
       <div class="hero-text">
         <p class="hero-kicker">Local roots. Decades of community service.<br>A clear voice for Ward 1&rsquo;s future.</p>
-        <h1>Steve Schmitt</h1>
-        <p class="hero-office">Candidate for County of Brant,<br>Ward 1 Councillor</p>
+        <h1>Steve <span>Schmitt</span></h1>
+        <p class="hero-office">Candidate for County of Brant &middot; Ward&nbsp;1 Councillor</p>
         <p class="hero-lede">Steve Schmitt is a candidate for Ward 1 Councillor in the County of Brant, Ontario, in the October&nbsp;26,&nbsp;2026 municipal election. A lifelong resident of St.&nbsp;George, he previously served three terms as a South Dumfries Councillor and two terms as County of Brant Councillor for Ward&nbsp;1.</p>
         <div class="hero-ctas">
-          <a href="#get-involved" class="btn btn-primary">Get Involved</a>
-          <a href="#priorities" class="btn btn-outline">Steve&rsquo;s Priorities</a>
+          <a href="#get-involved" class="btn btn-gold">Get Involved</a>
+          <a href="#priorities" class="btn btn-ghost">Steve&rsquo;s Priorities</a>
         </div>
+        <p class="hero-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Election Day: Monday, October 26, 2026
+        </p>
       </div>
       <div class="hero-photo">
-        <img src="images/headshot.jpg" alt="Steve Schmitt, candidate for County of Brant Ward 1 Councillor" width="480" height="560" onerror="this.closest('.hero-photo').classList.add('img-missing')">
+        <div class="photo-ring">
+          <img src="images/headshot.jpg" alt="Steve Schmitt, candidate for County of Brant Ward 1 Councillor" width="480" height="480" onerror="this.closest('.hero-photo').classList.add('img-missing')">
+        </div>
+      </div>
+    </div>
+    <div class="wave wave-hero" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#ffffff" d="M0,55 C300,105 640,-10 900,35 C1120,72 1320,40 1440,55 L1440,90 L0,90 Z"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ STAT BAND ============ -->
+  <section class="stat-band" aria-label="Steve at a glance">
+    <div class="container stat-grid">
+      <div class="stat">
+        <span class="stat-big">5</span>
+        <span class="stat-label">Terms elected to local Council</span>
+      </div>
+      <div class="stat">
+        <span class="stat-big">6</span>
+        <span class="stat-label">Years leading the South Dumfries Historical Society</span>
+      </div>
+      <div class="stat">
+        <span class="stat-big">Lifelong</span>
+        <span class="stat-label">Resident of St.&nbsp;George</span>
       </div>
     </div>
   </section>
@@ -142,6 +172,7 @@
   <!-- ============ MEET STEVE ============ -->
   <section class="section" id="meet-steve">
     <div class="container narrow">
+      <p class="kicker">About Steve</p>
       <h2>Meet Steve Schmitt</h2>
       <p>Steve&rsquo;s roots in St.&nbsp;George run deep. A lifelong resident and local entrepreneur, he spent his working life in the skilled trades and on the land &mdash; nearly 30 years as an electrician running Electra Modern Controls, as a landscaper with Nature&rsquo;s Way Gardens, and as property manager for the Tim Hortons camps. It&rsquo;s the kind of work that teaches you to solve problems practically, budget carefully, and stand behind what you build.</p>
       <p>Home is the Schmitt homestead in St.&nbsp;George, where Steve and his wife Holly tend the land and grow their own vegetables, and where their five grandchildren keep things lively. When he isn&rsquo;t at a council or community meeting, you&rsquo;ll likely find him in the garden or in the workshop on a carpentry project.</p>
@@ -153,6 +184,7 @@
   <!-- ============ EXPERIENCE ============ -->
   <section class="section section-alt" id="experience">
     <div class="container narrow">
+      <p class="kicker">Track Record</p>
       <h2>Steve Schmitt&rsquo;s Community Experience</h2>
       <p>A lifelong resident of St.&nbsp;George, Steve Schmitt has served the community through municipal leadership and volunteer involvement, including:</p>
       <ul class="experience-list">
@@ -169,21 +201,34 @@
   <!-- ============ PRIORITIES ============ -->
   <section class="section" id="priorities">
     <div class="container">
+      <p class="kicker">The Plan</p>
       <h2>Steve Schmitt&rsquo;s Priorities for Ward 1</h2>
       <div class="card-grid">
-        <div class="card">
+        <div class="card" data-n="01">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 42 L20 6h8l11 36"/><path d="M24 13v5M24 25v6M24 38v4"/></svg>
+          </div>
           <h3>Infrastructure Before Development</h3>
           <p>Supporting careful consideration of infrastructure needs and capacity when planning for future development. Growth should be paced by what our roads, water, and services can genuinely support &mdash; so that new development strengthens our communities rather than straining them.</p>
         </div>
-        <div class="card">
+        <div class="card" data-n="02">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><path d="M24 12v4m0 16v4"/><path d="M30 18.5c0-2.8-2.7-4.5-6-4.5s-6 1.7-6 4.5 2.6 4 6 4.7c3.4.7 6 1.9 6 4.8s-2.7 4.5-6 4.5-6-1.7-6-4.5"/></svg>
+          </div>
           <h3>Fiscal Responsibility</h3>
           <p>Emphasizing informed decision-making and financial planning, with attention to the costs of municipal decisions and their impact on property taxpayers. Every dollar Council spends comes from residents, and it deserves the same care you&rsquo;d give your own budget.</p>
         </div>
-        <div class="card">
+        <div class="card" data-n="03">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12a4 4 0 0 1 4-4h18a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H17l-7 6v-6a4 4 0 0 1-4-4Z"/><path d="M36 18h2a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-1v5l-6-5h-7"/></svg>
+          </div>
           <h3>Communication &amp; Public Confidence</h3>
           <p>Seeking improved communication between municipal government and residents, including more opportunities for public involvement and consultations. Residents should hear about decisions that affect them before they&rsquo;re made &mdash; not after.</p>
         </div>
-        <div class="card">
+        <div class="card" data-n="04">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 42V22L22 9l14 13v20"/><path d="M17 42V30h10v12"/><path d="M4 42h40"/><path d="M36 16v-6h5v11"/></svg>
+          </div>
           <h3>Rural &amp; Cultural Heritage</h3>
           <p>Supporting the protection of the area&rsquo;s rural character, cultural heritage, and natural resources. The history and rural character of South Dumfries are part of what makes Ward&nbsp;1 home, and they&rsquo;re worth protecting as we grow.</p>
         </div>
@@ -204,6 +249,7 @@
 
   <section class="section section-alt" id="endorsements">
     <div class="container">
+      <p class="kicker">Word Around Town</p>
       <h2>What Neighbours Are Saying</h2>
       <div class="card-grid quotes-grid">
         <blockquote class="quote-card">
@@ -226,6 +272,7 @@
   <!-- ============ NEWS ============ -->
   <section class="section section-alt" id="news">
     <div class="container narrow">
+      <p class="kicker">From the Campaign</p>
       <h2>News &amp; Updates from the Campaign</h2>
       <!-- To add a news post: copy an <article> block, update the date and text,
            and place it at the TOP of the list (newest first). See README.md. -->
@@ -240,6 +287,7 @@
   <!-- ============ PHOTOS ============ -->
   <section class="section" id="community">
     <div class="container">
+      <p class="kicker">Out &amp; About</p>
       <h2>Steve in the Community</h2>
       <div class="gallery">
         <figure>
@@ -264,20 +312,37 @@
 
   <!-- ============ HOW TO VOTE ============ -->
   <section class="section section-navy" id="vote">
-    <div class="container narrow">
-      <h2>How to Vote in the County of Brant Election</h2>
-      <p class="vote-date"><strong>Election day is Monday, October&nbsp;26, 2026.</strong></p>
-      <ul class="vote-steps">
-        <li><strong>Check that you&rsquo;re on the voters&rsquo; list.</strong> Confirm or update your information at <a href="https://voterlookup.ca" rel="noopener">voterlookup.ca</a> &mdash; it takes two minutes.</li>
-        <li><strong>Find out where, when, and how to vote.</strong> The County of Brant publishes advance voting dates, locations, and voting methods on its <a href="https://www.brant.ca/council-and-county-administration/elections/" rel="noopener">official elections page</a>.</li>
-        <li><strong>Live in St.&nbsp;George, Glen Morris, or elsewhere in South Dumfries?</strong> You&rsquo;re in Ward&nbsp;1 &mdash; and Steve Schmitt is asking for your vote.</li>
-      </ul>
+    <div class="wave wave-flip" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#ffffff" d="M0,35 C300,-15 640,100 900,55 C1120,18 1320,50 1440,35 L1440,0 L0,0 Z"/></svg>
+    </div>
+    <div class="container vote-inner">
+      <div class="vote-text">
+        <p class="kicker kicker-gold">Make It Count</p>
+        <h2>How to Vote in the County of Brant Election</h2>
+        <p class="vote-date">Election day is <strong>Monday, October&nbsp;26, 2026</strong>.</p>
+        <ul class="vote-steps">
+          <li><strong>Check that you&rsquo;re on the voters&rsquo; list.</strong> Confirm or update your information at <a href="https://voterlookup.ca" rel="noopener">voterlookup.ca</a> &mdash; it takes two minutes.</li>
+          <li><strong>Find out where, when, and how to vote.</strong> The County of Brant publishes advance voting dates, locations, and voting methods on its <a href="https://www.brant.ca/council-and-county-administration/elections/" rel="noopener">official elections page</a>.</li>
+          <li><strong>Live in St.&nbsp;George, Glen Morris, or elsewhere in South Dumfries?</strong> You&rsquo;re in Ward&nbsp;1 &mdash; and Steve Schmitt is asking for your vote.</li>
+        </ul>
+      </div>
+      <div class="vote-art" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="25" y="8" width="14" height="18" rx="1.5" transform="rotate(8 32 17)"/>
+          <path d="M29 17l2.6 2.6 5-6"/>
+          <path d="M14 32l3-7h11M36 25h11l3 7"/>
+          <rect x="10" y="32" width="44" height="24" rx="2"/>
+          <path d="M26 32h12" stroke-width="4"/>
+          <path d="M10 40h44"/>
+        </svg>
+      </div>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
   <section class="section" id="faq">
     <div class="container narrow">
+      <p class="kicker">Good to Know</p>
       <h2>Frequently Asked Questions</h2>
       <details>
         <summary>Who is Steve Schmitt?</summary>
@@ -309,6 +374,7 @@
   <!-- ============ GET INVOLVED ============ -->
   <section class="section section-alt" id="get-involved">
     <div class="container narrow">
+      <p class="kicker">Join Us</p>
       <h2>Get Involved</h2>
       <p>Have a question for Steve? Want a lawn sign on your property, or a few hours to give to the campaign? Send a note &mdash; every message gets read.</p>
 
@@ -350,6 +416,20 @@
   </section>
 
 </main>
+
+<div class="hills" aria-hidden="true">
+  <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+    <path fill="#22377c" d="M0,86 C240,40 480,96 720,74 C960,52 1200,88 1440,64 L1440,130 L0,130 Z"/>
+    <g fill="#16255f">
+      <path d="M150,86 l12,-26 l12,26 Z"/>
+      <path d="M178,86 l10,-20 l10,20 Z"/>
+      <path d="M1210,74 l13,-28 l13,28 Z"/>
+      <path d="M1240,76 l10,-20 l10,20 Z"/>
+      <path d="M1266,76 l8,-15 l8,15 Z"/>
+    </g>
+    <path fill="#0d1840" d="M0,108 C320,70 640,116 900,98 C1120,84 1320,106 1440,94 L1440,130 L0,130 Z"/>
+  </svg>
+</div>
 
 <footer class="site-footer">
   <div class="container">
