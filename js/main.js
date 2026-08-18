@@ -63,3 +63,67 @@ if (form) {
     }
   });
 }
+
+// Gallery lightbox: click a photo to view it large, with arrow/Esc support.
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lbImg = document.getElementById('lb-img');
+  const lbCap = document.getElementById('lb-cap');
+  const figures = [...document.querySelectorAll('.gallery figure')];
+  let index = 0;
+  let lastFocused = null;
+
+  const usable = () => figures.filter(f => !f.classList.contains('img-missing'));
+
+  function show(i) {
+    const list = usable();
+    if (!list.length) return;
+    index = (i + list.length) % list.length;
+    const fig = list[index];
+    const img = fig.querySelector('img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = fig.querySelector('figcaption').textContent;
+    const many = list.length > 1;
+    lightbox.querySelector('.lb-prev').hidden = !many;
+    lightbox.querySelector('.lb-next').hidden = !many;
+  }
+
+  function open(i) {
+    lastFocused = document.activeElement;
+    show(i);
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lightbox.querySelector('.lb-close').focus();
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    lbImg.src = '';
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  figures.forEach((fig) => {
+    if (fig.classList.contains('img-missing')) return;
+    fig.tabIndex = 0;
+    fig.setAttribute('role', 'button');
+    fig.setAttribute('aria-label', 'View photo: ' + fig.querySelector('figcaption').textContent);
+    fig.addEventListener('click', () => open(usable().indexOf(fig)));
+    fig.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(usable().indexOf(fig)); }
+    });
+  });
+
+  lightbox.querySelector('.lb-close').addEventListener('click', close);
+  lightbox.querySelector('.lb-prev').addEventListener('click', () => show(index - 1));
+  lightbox.querySelector('.lb-next').addEventListener('click', () => show(index + 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(index - 1);
+    if (e.key === 'ArrowRight') show(index + 1);
+  });
+}
