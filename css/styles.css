@@ -396,9 +396,23 @@ section[id] { scroll-margin-top: 4.5rem; }
 /* ---------- Community photo band ---------- */
 
 .photo-band {
+  background: var(--navy-deep);
+}
+.photo-band figure { margin: 0; }
+.photo-band-media {
   position: relative;
   overflow: hidden;
-  background: var(--navy-deep);
+}
+.photo-band figcaption {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0.85rem 1.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  color: #91a6dd;
 }
 .photo-band img {
   width: 100%;
