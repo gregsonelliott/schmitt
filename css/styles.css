@@ -68,16 +68,32 @@ section[id] { scroll-margin-top: 4.5rem; }
 }
 
 .brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.35rem 0;
+}
+.brand-name {
   font-family: var(--font-display);
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: #fff;
-  text-decoration: none;
+  line-height: 1;
 }
-.brand span { color: var(--blue-bright); }
+.brand-last { color: var(--blue-bright); }
+.brand-sub {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.19em;
+  line-height: 1;
+  color: var(--sky);
+}
 .brand:hover { color: #fff; }
+.brand:hover .brand-sub { color: #fff; }
 
 .nav-toggle {
   display: none;
