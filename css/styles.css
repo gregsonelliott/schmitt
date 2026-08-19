@@ -758,6 +758,13 @@ section[id] { scroll-margin-top: 4.5rem; }
 .vote-steps { padding-left: 1.3rem; margin: 1rem 0 0; }
 .vote-steps li { margin-bottom: 0.9rem; }
 .vote-steps strong { color: #fff; }
+.vote-note {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(147, 197, 253, 0.25);
+  font-size: 0.9rem;
+  color: #a9bde8;
+}
 
 .vote-art { justify-self: center; color: var(--sky); }
 .vote-art svg { width: min(15rem, 55vw); height: auto; }
