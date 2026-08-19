@@ -746,6 +746,9 @@ section[id] { scroll-margin-top: 4.5rem; }
 }
 .section-navy a { color: var(--sky); }
 .section-navy a:hover { color: #fff; }
+/* buttons must not inherit the section's light link colour */
+.section-navy .btn-light,
+.section-navy .btn-light:hover { color: var(--navy-deep); }
 
 .vote-inner {
   display: grid;
@@ -758,6 +761,8 @@ section[id] { scroll-margin-top: 4.5rem; }
 .vote-steps { padding-left: 1.3rem; margin: 1rem 0 0; }
 .vote-steps li { margin-bottom: 0.9rem; }
 .vote-steps strong { color: #fff; }
+.vote-cta { margin: 1.6rem 0 0; }
+
 .vote-note {
   margin-top: 1.4rem;
   padding-top: 1rem;
